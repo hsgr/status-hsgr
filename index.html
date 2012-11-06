@@ -33,18 +33,22 @@
             count: 6,
             loading_text: "loading tweets..."
         });
-        $.getJSON('http://hackerspace.gr/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=Network/Leases&callback=?', function(json) {
-          var count = json.query.pages[168].revisions[0]["*"];
-          $('#counter').html(count);
-          if (count == "0") {
-            $('.counter.panel').attr("id","close");
-            $('#openornot').html('hackers in space, means that space is now closed!');
-          }
-          else {
-            $('.counter.panel').attr("id","open");
-            $('#openornot').html('hackers in space, means that space is now open!');
-          }          
-        });
+        $.ajax({
+          url: 'http://hackerspace.gr/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=Network/Leases',
+          dataType: 'jsonp',
+          crossDomain: true,
+          cache: false}).done( function(json) {
+            var count = json.query.pages[168].revisions[0]["*"];
+            $('#counter').html(count);
+            if (count == "0") {
+              $('.counter.panel').attr("id","close");
+              $('#openornot').html('hackers in space, means that space is now closed!');
+            }
+            else {
+              $('.counter.panel').attr("id","open");
+              $('#openornot').html('hackers in space, means that space is now open!');
+            }
+          }); 
     });
   </script>
 
@@ -66,9 +70,8 @@
 
   <div class="row">
     <div class="eight columns">
-      <h3>Now</h3>
+      <h4>Now</h4>
 
-      <!-- Grid Example -->
       <div class="row">
         <div class="twelve columns">
           <div class="panel counter">
@@ -78,13 +81,13 @@
         </div>
       </div>      
       
-      <h3>Events</h3>
-      <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;hl=en&amp;bgcolor=%23FFFFFF&amp;src=lv2q6em24ravvoqlc7qgc6dccicmev7d%40import.calendar.google.com&amp;color=%23182C57&amp;ctz=Europe%2FAthens" style=" border-width:0 "width="275" height="300" frameborder="0" scrolling="no"></iframe>
+      <h4>Events</h4>
+      <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;hl=en&amp;bgcolor=%23FFFFFF&amp;src=lv2q6em24ravvoqlc7qgc6dccicmev7d%40import.calendar.google.com&amp;color=%23182C57&amp;ctz=Europe%2FAthens" style=" border-width:0 "width="290" height="300" frameborder="0" scrolling="no"></iframe>
       
     </div>
 
     <div class="four columns">
-      <h3>Tweets</h3>
+      <h4>Tweets</h4>
       <div class="tweet"></div> 
     </div>
   </div>
@@ -94,7 +97,7 @@
   <div class="row">
     <div class="twelve columns">
       <hr>
-      <p>Webapp developed by <a href="http://bacharakis.com">Christos Bacharakis</a> and <a href="http://pierros.papadeas.gr">Pierros Papadeas</a>. Fork me on <a href="https://github.com/hsgr/status-hsgr">GitHub</a>.
+      <p>Webapp developed by <a href="http://bacharakis.com">Christos Bacharakis</a> and <a href="http://pierros.papadeas.gr">Pierros Papadeas</a>. Fork me on <a href="https://github.com/hsgr/status-hsgr">GitHub</a>.<a href="#" id="install_app"> Install</a> as a web app.
     </div>
   </div>
 
