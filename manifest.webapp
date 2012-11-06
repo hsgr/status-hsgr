@@ -2,7 +2,7 @@
   "name": "status.hsgr",
   "description": "This app provides the status and future events of Hackerspace.gr",
   "icons": {
-    "128": "img/icon-128.png"
+    "128": "/img/icon-128.png"
   },
   "developer": {
     "name": "Pierros Papadeas & Christos Bacharakis",
