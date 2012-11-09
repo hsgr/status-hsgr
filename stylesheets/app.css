@@ -1,88 +1,95 @@
-/* Artfully masterminded by ZURB  */
+@font-face { font-family: OpenSans; src: url('/fonts/OpenSans-Regular.ttf');}
+@font-face { font-family: OpenSans; font-weight: bold; src: url('/fonts/OpenSans-Bold.ttf');}
+@font-face { font-family: OpenSans; font-style: italic; src: url('/fonts/OpenSans-Italic.ttf');}
+@font-face { font-family: OpenSans; font-weight: bold; font-style: italic; src: url('/fonts/OpenSans_BoldItalic.ttf');}
+
 
 body {
-	background: #ccc;
+  background: #ccc;
+  padding: 0;
+  margin: 0;
+  font-family:OpenSans;
 }
 
 a {
-	color: #888 !important;
+  color: #888 !important;
 }
 
 hr {
-	border-color: #aaa;
+  border-color: #aaa;
 }
 
 #open {
-	background: none repeat scroll 0% 0% #9bd72e;
-	border: 1px solid #8bc129;
+  background: none repeat scroll 0% 0% #9bd72e;
+  border: 1px solid #8bc129;
 }
 
 #close {
-	background: none repeat scroll 0% 0% #fc6149;
-	border: 1px solid #e25741;
+  background: none repeat scroll 0% 0% #fc6149;
+  border: 1px solid #e25741;
 }
 
 #counter {
-	float: left;
-	font-size: 22px;
-	margin-right: 8px;
-	display: block;
+  float: left;
+  font-size: 20px;
+  margin-right: 8px;
+  display: block;
 }
 
 #openornot {
-	font-size: 22px;
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 767px) {
   .title h2 {
-  	font-size: 20px !important;
-  	text-align: center;
+    font-size: 20px !important;
+    text-align: center;
   }
 
   #openornot {
-  	font-size: 14px;
+    font-size: 14px;
   }
 
   #counter {
-  	font-size: 30px;
+    font-size: 30px;
   }
 }
 
 .tweet,
 .query {
-	color: #085258;
+  color: #085258;
 }
 
 .tweet_list {
-	-webkit-border-radius: 0.5em;
-	-moz-border-radius: 0.5em;
-	border-radius: 0.5em;
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	overflow-y: hidden;
-	background-color: #ddd;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+  background-color: #ddd;
 }
 
 .tweet_list li {
-	overflow-y: auto;
-	overflow-x: hidden;
-	padding: 0.5em;
-	list-style-type: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.5em;
+  list-style-type: none;
 }
 
 .tweet_list li a {
-	color: #0C717A;
+  color: #0C717A;
 }
 
 .tweet_list .tweet_even {
-	background-color: #eee;
+  background-color: #eee;
 }
 
 .tweet_list .tweet_avatar {
-	padding-right: .5em; float: left;
+  padding-right: .5em; float: left;
 }
 
 .tweet_list .tweet_avatar img {
-	vertical-align: middle;
+  vertical-align: middle;
 }
