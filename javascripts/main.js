@@ -19,5 +19,15 @@ $.ajax({
 };
 
 $(document).ready(function() {
+  $('#loading').toggle();
   get_counter();
+  var refreshId = setInterval(function() {
+    get_counter();
+  }, 100000);
+});
+
+$(document).ajaxStart(function() {
+  $('#loading').toggle();
+}).ajaxStop( function() {
+  $('#loading').toggle();
 });

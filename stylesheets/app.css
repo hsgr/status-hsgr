@@ -19,6 +19,14 @@ hr {
   border-color: #aaa;
 }
 
+#loading {
+  background-color:#fc6149;
+  color:white;
+  padding:2px;
+  margin-left:2px;
+  display:inline-block;
+}
+
 #open {
   background: none repeat scroll 0% 0% #9bd72e;
   border: 1px solid #8bc129;
