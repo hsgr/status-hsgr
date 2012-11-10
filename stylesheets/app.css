@@ -105,3 +105,13 @@ hr {
 .tweet_list .tweet_avatar img {
   vertical-align: middle;
 }
+
+#calendar li {
+  padding:6px;
+  border:solid 1px #eee;
+  list-style:none;
+}
+
+#calendar li.header {
+  background-color:#eee;font-size:1.1em;
+}

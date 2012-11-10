@@ -23,10 +23,11 @@
   <link rel="stylesheet" href="stylesheets/foundation.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
 
-  <script src="javascripts/modernizr.foundation.js"></script>
-  <script src="http://code.jquery.com/jquery.min.js"></script>
-  <script src="javascripts/jquery.tweet.js"></script>
-  <script src="javascripts/main.js"></script>
+  <script type="text/javascript" src="javascripts/modernizr.foundation.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.tweet.js"></script>
+  <script type="text/javascript" src="javascripts/ical_parser.js"></script>
+  <script type="text/javascript" src="javascripts/main.js"></script>
 
   <script type='text/javascript'>
     jQuery(function($){
@@ -45,6 +46,7 @@
 
 </head>
 <body>
+
 
   <div class="row">
     <div class="twelve columns title">
@@ -72,6 +74,7 @@
       <h4>Events</h4>
 
       <div class="twelve columns">
+        <!--
         <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;hl=en&amp;bgcolor=%23FFFFFF&amp;src=lv2q6em24ravvoqlc7qgc6dccicmev7d%40import.calendar.google.com&amp;color=%23182C57&amp;ctz=Europe%2FAthens"
                 style="border-width:0"
                 width="100%"
@@ -79,6 +82,8 @@
                 frameborder="0"
                 scrolling="no">
         </iframe>
+        -->
+        <ul id='calendar'><li class='header'>Upcoming Events.</li></ul>
       </div>
 
     </div>
