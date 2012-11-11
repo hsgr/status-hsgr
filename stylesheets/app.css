@@ -1,11 +1,11 @@
-@font-face { font-family: OpenSans; src: url('/fonts/OpenSans-Regular.ttf');}
-@font-face { font-family: OpenSans; font-weight: bold; src: url('/fonts/OpenSans-Bold.ttf');}
-@font-face { font-family: OpenSans; font-style: italic; src: url('/fonts/OpenSans-Italic.ttf');}
-@font-face { font-family: OpenSans; font-weight: bold; font-style: italic; src: url('/fonts/OpenSans_BoldItalic.ttf');}
+@font-face { font-family: OpenSans; src: local('OpenSans'), url('/fonts/OpenSans-Regular.ttf');}
+@font-face { font-family: OpenSans; font-weight: bold; src: local('OpenSans-Bold'), url('/fonts/OpenSans-Bold.ttf');}
+@font-face { font-family: OpenSans; font-style: italic; src: local('OpenSans-Italic'), url('/fonts/OpenSans-Italic.ttf');}
+@font-face { font-family: OpenSans; font-weight: bold; font-style: italic; src: local('OpenSans-BoldItalic'), url('/fonts/OpenSans_BoldItalic.ttf');}
 
 
 body {
-  background: #ccc;
+  background: #ddd;
   padding: 0;
   margin: 0;
   font-family:OpenSans;
@@ -15,12 +15,13 @@ a {
   color: #888 !important;
 }
 
-h2 {
+h2, h4 {
   font-family:OpenSans;
+  text-shadow: 1px 1px 1px #eee;
 }
 
 hr {
-  border-color: #aaa;
+  border-color: #ccc;
 }
 
 #loading {
@@ -34,11 +35,17 @@ hr {
 #open {
   background: none repeat scroll 0% 0% #9bd72e;
   border: 1px solid #8bc129;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
 }
 
 #close {
   background: none repeat scroll 0% 0% #fc6149;
   border: 1px solid #e25741;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
 }
 
 #counter {
@@ -80,7 +87,7 @@ hr {
   margin: 0;
   padding: 0;
   overflow-y: hidden;
-  background-color: #ddd;
+  background-color: #e2e2e2;
 }
 
 .tweet_list li {
@@ -110,15 +117,74 @@ hr {
   background-color:#eee;font-size:1.1em;
 }
 
-.event_date, #events_all {
+.event_date {
+  text-align: right;
+}
+
+#events_all {
+  margin-top: 25px;
+  font-style: italic;
   text-align: right;
 }
 
 li.event {
   padding:6px;
   list-style:none;
+  background-color: #eee;
+  border-radius: 0px 8px 8px 0px;
+  margin-bottom: 15px;
+}
+
+ul#calendar_current > li.event {
+  margin-top: 10px;
 }
 
 li.event:even {
   background-color: #aaa;
+}
+
+.now_tag {
+  border-radius: 8px 8px 0px 0px;
+  color: white;
+  font-size: 12px;
+  padding: 0px 5px;
+  float: left;
+  position: absolute;
+  left: 9px;
+  top: -25px;
+  background: rgb(255,0,0); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(255,0,0,1) 64%, rgba(150,0,0,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(64%,rgba(255,0,0,1)), color-stop(100%,rgba(150,0,0,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(255,0,0,1) 64%,rgba(150,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(255,0,0,1) 64%,rgba(150,0,0,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(255,0,0,1) 64%,rgba(150,0,0,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(255,0,0,1) 64%,rgba(150,0,0,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#960000',GradientType=0 ); /* IE6-9 */
+}
+
+@media only screen and (min-width: 767px) {
+  .now_tag {
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+    /* IE */
+    -ms-transform: rotate(-90deg);
+    /* Opera */
+    -o-transform: rotate(-90deg);
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    left: -15px;
+    top: 1px;
+    background: rgb(255,0,0);
+  }
+}
+
+.event_hour {
+  color: gray;
+  font-style: italic;
+}
+
+a.description {
+  font-weight: bold;
 }
