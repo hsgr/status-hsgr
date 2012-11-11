@@ -23,10 +23,10 @@
   <link rel="stylesheet" href="stylesheets/foundation.min.css">
   <link rel="stylesheet" href="stylesheets/app.css">
 
-  <script src="javascripts/modernizr.foundation.js"></script>
-  <script src="http://code.jquery.com/jquery.min.js"></script>
-  <script src="javascripts/jquery.tweet.js"></script>
-  <script src="javascripts/main.js"></script>
+  <script type="text/javascript" src="javascripts/modernizr.foundation.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.tweet.js"></script>
+  <script type="text/javascript" src="javascripts/ical_parser.js"></script>
 
   <script type='text/javascript'>
     jQuery(function($){
@@ -46,12 +46,11 @@
 </head>
 <body>
 
+
   <div class="row">
     <div class="twelve columns title">
       <h2>status.hackerspace.gr</h2>
-      <p class="hide-for-small">know what's on...
-        <span id="loading">loading...</span>
-      </p>
+      <p class="hide-for-small">know what's on...</p>
       <hr />
     </div>
   </div>
@@ -69,16 +68,21 @@
         </div>
       </div>
 
-      <h4>Events</h4>
-
-      <div class="twelve columns">
-        <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;hl=en&amp;bgcolor=%23FFFFFF&amp;src=lv2q6em24ravvoqlc7qgc6dccicmev7d%40import.calendar.google.com&amp;color=%23182C57&amp;ctz=Europe%2FAthens"
-                style="border-width:0"
-                width="100%"
-                height="300"
-                frameborder="0"
-                scrolling="no">
-        </iframe>
+      <div class="row">
+        <div class="two mobile-one columns">
+          <h4>Events</h4>
+        </div>
+        <div id="events_all" class="ten mobile-three columns">
+          <a target="_blank" href="https://hackerspace.gr/wiki/Category:Events">See all events ></a>
+        </div>
+      </div>
+      <div class="row">
+        <div id="events_wrapper" class="twelve columns">
+          <ul id='calendar_current'></ul>
+        </div>
+        <div id="events_wrapper" class="twelve columns">
+          <ul id='calendar'></ul>
+        </div>
       </div>
 
     </div>
@@ -94,40 +98,9 @@
   <div class="row">
     <div class="twelve columns">
       <hr>
-      <p>Webapp developed by <a href="http://bacharakis.com">Christos Bacharakis</a> and <a href="http://pierros.papadeas.gr">Pierros Papadeas</a>. Fork me on <a href="https://github.com/hsgr/status-hsgr">GitHub</a>.<a href="#" id="install_app"> Install</a> as a web app.
+      <p>Webapp developed by <a href="http://bacharakis.com">C Bacharakis</a>, <a href="http://roussos.cc">N Roussos</a> and <a href="http://pierros.papadeas.gr">P Papadeas</a>. Fork me on <a href="https://github.com/hsgr/status-hsgr">GitHub</a>.<a href="#" id="install_app"> Install</a> as a web app.
     </div>
   </div>
-
-
-
-
-
-  <!-- Included JS Files (Uncompressed) -->
-  <!--
-
-  <script src="javascripts/jquery.js"></script>
-
-  <script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script>
-
-  <script src="javascripts/jquery.foundation.forms.js"></script>
-
-  <script src="javascripts/jquery.foundation.navigation.js"></script>
-
-  <script src="javascripts/jquery.foundation.buttons.js"></script>
-
-  <script src="javascripts/jquery.foundation.tabs.js"></script>
-
-  <script src="javascripts/jquery.foundation.tooltips.js"></script>
-
-  <script src="javascripts/jquery.foundation.accordion.js"></script>
-
-  <script src="javascripts/jquery.placeholder.js"></script>
-
-  <script src="javascripts/jquery.foundation.alerts.js"></script>
-
-  <script src="javascripts/jquery.foundation.topbar.js"></script>
-
-  -->
 
   <!-- Included JS Files (Compressed) -->
   <script src="javascripts/foundation.min.js"></script>
