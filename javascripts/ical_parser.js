@@ -20,7 +20,7 @@ function ical_parser(feed_url, callback){
    */
   this.loadFile = function(url, callback){
     //Create request object
-    try {xmlhttp = window.XMLHttpRequest?new XMLHttpRequest(): new ActiveXObject("Microsoft.XMLHTTP");}  catch (e) { }
+    try {xmlhttp = window.XMLHttpRequest?new XMLHttpRequest(): new ActiveXObject("MSXML2.XMLHTTP.3.0");}  catch (e) { }
     //Grab file
     xmlhttp.onreadystatechange = function(){
       if ((xmlhttp.readyState == 4) && (xmlhttp.status == 200)) {
@@ -87,10 +87,16 @@ function ical_parser(feed_url, callback){
       }
       //If we are in an event
       if(in_event){
-        //Split the item based on the first ":"
+        //Get position of : & ;
         idx = ln.indexOf(':');
+        colum = ln.indexOf(';');
+        //If we don't have ; then we should only use :
+        if( colum =='-1'){
+          colum = idx;
+        }
+        //Split the item based on the first ":"
         //Apply trimming to values to reduce risks of badly formatted ical files.
-        type = ln.substr(0,idx).replace(/^\s\s*/, '').replace(/\s\s*$/, '');//Trim
+        type = ln.substr(0,colum).replace(/^\s\s*/, '').replace(/\s\s*$/, '');//Trim
         val = ln.substr(idx+1,ln.length-(idx+1)).replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 
         //If the type is a start date, proccess it and store details
@@ -100,6 +106,9 @@ function ical_parser(feed_url, callback){
           //These are helpful for display
           cur_event.start_time = dt.hour+':'+dt.minute;
           cur_event.start_date = dt.day+'/'+dt.month+'/'+dt.year;
+          cur_event.start_day = dt.day;
+          cur_event.start_month = dt.month;
+          cur_event.start_year = dt.year;
           cur_event.day = dt.dayname;
         }
         //If the type is an end date, do the same as above
@@ -109,6 +118,9 @@ function ical_parser(feed_url, callback){
           //These are helpful for display
           cur_event.end_time = dt.hour+':'+dt.minute;
           cur_event.end_date = dt.day+'/'+dt.month+'/'+dt.year;
+          cur_event.end_day = dt.day;
+          cur_event.end_month = dt.month;
+          cur_event.end_year = dt.year;
           cur_event.day = dt.dayname;
         }
         //Convert timestamp

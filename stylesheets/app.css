@@ -106,12 +106,19 @@ hr {
   vertical-align: middle;
 }
 
-#calendar li {
+#calendar li.header {
+  background-color:#eee;font-size:1.1em;
+}
+
+.event_date, #events_all {
+  text-align: right;
+}
+
+li.event {
   padding:6px;
-  border:solid 1px #eee;
   list-style:none;
 }
 
-#calendar li.header {
-  background-color:#eee;font-size:1.1em;
+li.event:even {
+  background-color: #aaa;
 }
