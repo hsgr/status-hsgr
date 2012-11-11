@@ -166,7 +166,7 @@ function ical_parser(feed_url, callback){
 
     this.events.forEach(function(itm){
       //If the event starts after the current time, add it to the array to return.
-      if(itm.DTSTART > current_date) future_events.push(itm);
+      if(itm.DTEND > current_date) future_events.push(itm);
     });
     return future_events;
   }
