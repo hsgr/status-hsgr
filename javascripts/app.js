@@ -72,9 +72,9 @@ function get_counter() {
 };
 
 //Display All future events in ical file as list.
-function displayEvents(events,limit) {
+function displayEvents(events,events_current,limit) {
   //Foreach event
-  for ( var i=0; i<limit; i++) {
+  for ( var i=0; i<Math.min(limit,events.length); i++) {
     //Create a list item
     var li = document.createElement('li');
     li.setAttribute('class', 'event');
@@ -85,17 +85,19 @@ function displayEvents(events,limit) {
     //Add list item to list.
     document.getElementById('calendar').appendChild(li);
   }
-  for ( var i=0; i<limit; i++) {
+  for ( var j=0; j<Math.min(limit,events.length); j++) {
     //Create a list item
     var li = document.createElement('li');
     li.setAttribute('class', 'event');
     //Add details from cal file.
-    li.innerHTML = '<div class="row"><div class="seven columns"><div class="now_tag">now</div><a class="description" target="_blank" href="'+ events_current[i].DESCRIPTION + '">' +
-    events_current[i].SUMMARY + '</a></div><div class="five columns event_date">' + events_current[i].day + ' ' + events_current[i].start_day + '/' +
-    events_current[i].start_month + ' <span class="event_hour">' +events_current[i].start_time + ' - ' + events_current[i].end_time + '</span></div></div>';
+    li.innerHTML = '<div class="row"><div class="seven columns"><div class="now_tag">now</div><a class="description" target="_blank" href="'+ events_current[j].DESCRIPTION + '">' +
+    events_current[j].SUMMARY + '</a></div><div class="five columns event_date">' + events_current[j].day + ' ' + events_current[j].start_day + '/' +
+    events_current[j].start_month + ' <span class="event_hour">' +events_current[j].start_time + ' - ' + events_current[j].end_time + '</span></div></div>';
     document.getElementById('calendar_current').appendChild(li);
   }
 }
+
+var a, b;
 
 function get_events() {
   var ical_url = 'http://hackerspace.gr/archive/hsgr.ics';
@@ -103,10 +105,10 @@ function get_events() {
   new ical_parser(ical_url, function(cal) {
     //When ical parser has loaded file
     //get future events
-    events = cal.getFutureEvents();
-    events_current = cal.getCurrentEvents();
+    a = cal.getFutureEvents();
+    b = cal.getCurrentEvents();
     //And display them
-    displayEvents(events,6);
+    displayEvents(a,b,6);
   });
 }
 
