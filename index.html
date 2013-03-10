@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="stylesheets/app.css">
 
   <script type="text/javascript" src="javascripts/modernizr.foundation.js"></script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/jquery.tweet.js"></script>
   <script type="text/javascript" src="javascripts/ical_parser.js"></script>
 
@@ -33,7 +33,7 @@
     jQuery(function($){
         $(".tweet").tweet({
             username: "hackerspacegr",
-            count: 6,
+            count: 10,
             loading_text: "loading tweets..."
         });
     });
@@ -86,6 +86,19 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="two mobile-one columns">
+          <h4>Activity</h4>
+        </div>
+        <div id="events_all" class="ten mobile-three columns">
+          <a target="_blank" href="http://done.hackerspace.gr/">See all activity ></a>
+        </div>
+      </div>
+      <div class="row">
+        <div id="activity_wrapper" class="twelve columns">
+          <ul id='activities'></ul>
+        </div>
+      </div>
     </div>
 
     <div class="four columns">
@@ -107,6 +120,7 @@
   <script src="javascripts/foundation.min.js"></script>
 
   <!-- Initialize JS Plugins -->
+  <script type="text/javascript" src="javascripts/jquery.timeago.js"></script>
   <script src="javascripts/app.js"></script>
 
 </body>

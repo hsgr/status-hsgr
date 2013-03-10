@@ -71,6 +71,23 @@ $.ajax({
 });
 };
 
+function get_activity() {
+  $.ajax({
+    type: 'GET',
+    url: 'http://done.hackerspace.gr/api/v1/feed?limit=5',
+    dataType: 'jsonp',
+    jsonpCallback: 'func',
+    success: function(data) {
+      $('#activities').empty();
+      $.each(data, function(i,v) {
+        $('#activities').append('<li class="event"><div class="row"><div class="twelve columns">' + v.content +
+          '</div><div class="twelve columns event_date"><span class="event_hour">' + v.author + ' @ ' +
+          $.timeago(v.timestamp) + '</span></div></div></li>');
+      });
+    }
+  });
+};
+
 //Display All future events in ical file as list.
 function displayEvents(events,events_current,limit) {
   //Foreach event
@@ -116,6 +133,7 @@ $(document).ready(function() {
   $('#loading').toggle();
   get_counter();
   get_events();
+  get_activity();
   var refreshId = setInterval(function() {
     get_counter();
   }, 100000);
