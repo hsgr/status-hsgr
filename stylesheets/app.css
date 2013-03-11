@@ -119,7 +119,8 @@ h2, h4 {
   background-color:#eee;font-size:1.1em;
 }
 
-.event_date {
+.event_date,
+.feedEkList .itemDate {
   text-align: right;
 }
 
@@ -129,7 +130,8 @@ h2, h4 {
   text-align: right;
 }
 
-li.event {
+li.event,
+.feedEkList li {
   padding:6px;
   list-style:none;
   background-color: #fff;

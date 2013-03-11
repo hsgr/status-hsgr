@@ -88,6 +88,16 @@ function get_activity() {
   });
 };
 
+function get_news() {
+  $('#news_wrapper').FeedEk({
+    FeedUrl : 'http://hackerspace.gr/wiki/index.php?title=News&action=feed&feed=rss',
+    MaxCount : 5,
+    ShowDesc : false,
+    ShowPubDate:true,
+    TitleLinkTarget:'_blank'
+  });
+};
+
 //Display All future events in ical file as list.
 function displayEvents(events,events_current,limit) {
   //Foreach event
@@ -134,6 +144,7 @@ $(document).ready(function() {
   get_counter();
   get_events();
   get_activity();
+  get_news();
   var refreshId = setInterval(function() {
     get_counter();
   }, 100000);
