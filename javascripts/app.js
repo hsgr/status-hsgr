@@ -60,11 +60,16 @@ function get_counter() {
     cache: false
   }).done(function(json) {
     var count = json.query.pages[168].revisions[0]["*"];
-    $('#counter').html(count);
-    if (count == "0") {
+    var splitted = count.split(" ");
+    if ( isNaN(splitted[0]) ) {
+      $('.counter.panel').attr("id","close");
+      $('#openornot').html('0 hackers in space, means that space is now closed!');
+    } else if (splitted[0] == "0") {
+      $('#counter').html(splitted[0]);
       $('.counter.panel').attr("id","close");
       $('#openornot').html('hackers in space, means that space is now closed!');
     } else {
+      $('#counter').html(splitted[0]);
       $('.counter.panel').attr("id","open");
       $('#openornot').html('hackers in space, means that space is now open!');
     }
