@@ -23,16 +23,9 @@
   <link rel="stylesheet" href="stylesheets/app.css">
 
   <script src="javascripts/modernizr.foundation.js"></script>
-  <script src="javascripts/jquery.js"></script>
-  <script src="javascripts/jquery.tweet.js"></script> 
+  <script src="javascripts/jquery.js"></script> 
 
   <script type='text/javascript'>
-    jQuery(function($){
-        $(".tweet").tweet({
-            username: "hackerspacegr",
-            count: 6,
-            loading_text: "loading tweets..."
-        });
         $.ajax({
           url: 'http://hackerspace.gr/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=Network/Leases',
           dataType: 'jsonp',
@@ -97,7 +90,9 @@
 
     <div class="four columns">
       <h4>Tweets</h4>
-      <div class="tweet"></div> 
+      <div class="tweet">
+	<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hackerspacegr"  data-tweet-limit="10" data-widget-id="376542436077486082">Tweets by @hackerspacegr</a>
+      </div> 
     </div>
   </div>
 
@@ -146,6 +141,9 @@
   
   <!-- Initialize JS Plugins -->
   <script src="javascripts/app.js"></script>
+
+  <!-- Tweets -->
+  <script src="javascripts/twitter_widget.js"></script>
 
   <script>
     
