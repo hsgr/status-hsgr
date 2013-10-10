@@ -61,17 +61,35 @@ function get_counter() {
   }).done(function(json) {
     var count = json.query.pages[168].revisions[0]["*"];
     var splitted = count.split(" ");
+    var random_no = Math.floor((Math.random()*10)+2);
+    var skadalia = [
+      'thieves',
+      'ghosts',
+      'rats',
+      'mosquitos',
+      'resistors',
+      'capacitors',
+      'supermodels',
+      'astronauts',
+      'aliens',
+      'M$ users',
+      'books',
+      'Justin Bieber fans',
+      'unicorns',
+      'nyan cats'
+    ];
+    var random_text = Math.floor(Math.random()*skadalia.length);
     if ( isNaN(splitted[0]) ) {
       $('.counter.panel').attr("id","close");
-      $('#openornot').html('0 hackers in space, means that space is now closed!');
+      $('#openornot').html('0 hackers and ' + random_no + ' ' + skadalia[random_text] + ' in space, means that space is now closed!');
     } else if (splitted[0] == "0") {
       $('#counter').html(splitted[0]);
       $('.counter.panel').attr("id","close");
-      $('#openornot').html('hackers in space, means that space is now closed!');
+      $('#openornot').html('hackers and ' + random_no + ' ' + skadalia[random_text] + ' in space, means that space is now closed!');
     } else {
       $('#counter').html(splitted[0]);
       $('.counter.panel').attr("id","open");
-      $('#openornot').html('hackers in space, means that space is now open!');
+      $('#openornot').html('hackers and ' + random_no + ' ' + skadalia[random_text] + ' in space, means that space is now open!');
     }
   });
 };
@@ -144,6 +162,10 @@ function get_events() {
   });
 }
 
+function insert_random() {
+
+}
+
 $(document).ready(function() {
   $('#loading').toggle();
   get_counter();
@@ -153,4 +175,5 @@ $(document).ready(function() {
   var refreshId = setInterval(function() {
     get_counter();
   }, 100000);
+  insert_random();
 });
