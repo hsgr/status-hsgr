@@ -86,6 +86,10 @@ function get_counter() {
       $('#counter').html(splitted[0]);
       $('.counter.panel').attr("id","close");
       $('#openornot').html('hackers and ' + random_no + ' ' + skadalia[random_text] + ' in space, means that space is now closed!');
+    } else if (splitted[0] == "-1") {
+      $('#counter').html("");
+      $('.counter.panel').attr("id","close");
+      $('#openornot').html('Cannot determine if the space is open or closed. Please check again later.');
     } else {
       $('#counter').html(splitted[0]);
       $('.counter.panel').attr("id","open");
