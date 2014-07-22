@@ -98,23 +98,6 @@ function get_counter() {
   });
 };
 
-function get_activity() {
-  $.ajax({
-    type: 'GET',
-    url: 'http://done.hackerspace.gr/api/v1/feed?limit=5',
-    dataType: 'jsonp',
-    jsonpCallback: 'func',
-    success: function(data) {
-      $('#activities').empty();
-      $.each(data, function(i,v) {
-        $('#activities').append('<li class="event"><div class="row"><div class="twelve columns">' + v.content +
-          '</div><div class="twelve columns event_date"><span class="event_hour">' + v.author + ' @ ' +
-          $.timeago(v.timestamp) + '</span></div></div></li>');
-      });
-    }
-  });
-};
-
 function get_news() {
   $('#news_wrapper').FeedEk({
     FeedUrl : 'http://hackerspace.gr/wiki/index.php?title=News&action=feed&feed=rss',
@@ -174,7 +157,6 @@ $(document).ready(function() {
   $('#loading').toggle();
   get_counter();
   get_events();
-  get_activity();
   get_news();
   var refreshId = setInterval(function() {
     get_counter();
